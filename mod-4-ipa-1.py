@@ -64,7 +64,6 @@ def tic_tac_toe(board):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    def tic_tac_toe(board):
     horizontal_check = [x for x in board]
     vertical_check = [x for x in zip(*board)]
     updown_diagonal_check = [board[i][i] for i,v in enumerate(board)]
