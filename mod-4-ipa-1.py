@@ -103,4 +103,35 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    legs = route_map
+    placeholder = []
+    placeholder.append(first_stop)
+    placeholder.append(second_stop)
+    placeholder = tuple(placeholder)
+    journey = legs.keys()
+    endgame = []
+    travel_time = 0
+    if first_stop == second_stop:
+        travel_time = 0
+    if placeholder in legs.keys():
+        travel_time = legs[placeholder]["tt_mins"]
+    else:
+        while second_stop != endgame:
+            for i in range(len(legs.keys())):
+                placeholder = []
+                placeholder.append(first_stop)
+                journey = legs.keys()
+                journey = list(journey)
+                journey = journey[i]
+                journey = list(journey)
+                journey = journey[1]
+                placeholder.append(journey)
+                placeholder = tuple(placeholder)
+                if placeholder in legs.keys():
+                    travel_time += legs[placeholder]["tt_mins"]
+                    first_stop = journey
+                    endgame = journey
+                    break
+                else: continue
+                    
+    return(travel_time)   
