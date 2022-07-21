@@ -94,7 +94,7 @@ def tic_tac_toe(board):
         return "X"
     elif any(z == ["O"]*len(board) for z in horizontal_check) or any(z == tuple(["O"]*len(board)) for z in vertical_check) or all(z == "O" for z in updown_diagonal_check) or all(z == "O" for z in downup_diagonal_check):
         return "O"
-    return None
+    return "NO WINNER"
 
 
 def eta(first_stop, second_stop, route_map):
