@@ -128,30 +128,31 @@ def eta(first_stop, second_stop, route_map):
     placeholder.append(first_stop)
     placeholder.append(second_stop)
     placeholder = tuple(placeholder)
-    journey = legs.keys()
+    trip = legs.keys()
     endgame = []
     travel_time = 0
     if first_stop == second_stop:
         travel_time = 0
     if placeholder in legs.keys():
-        travel_time = legs[placeholder]["tt_mins"]
+        travel_time = legs[placeholder]["travel_time_mins"]
     else:
         while second_stop != endgame:
             for i in range(len(legs.keys())):
                 placeholder = []
                 placeholder.append(first_stop)
-                journey = legs.keys()
-                journey = list(journey)
-                journey = journey[i]
-                journey = list(journey)
-                journey = journey[1]
-                placeholder.append(journey)
-                placeholder = tuple(placeholder)
+                trip = legs.keys()
+                trip = list(trip)
+                trip = trip[i]
+                trip = list(trip)
+                trip = trip[1]
+                trip.append(trip)
+                trip = tuple(placeholder)
                 if placeholder in legs.keys():
-                    travel_time += legs[placeholder]["tt_mins"]
-                    first_stop = journey
-                    endgame = journey
+                    travel_time += legs[placeholder]["travel_time_mins"]
+                    first_stop = trip
+                    endgame = trip
                     break
-                else: continue
+                else:
+                    continue
                     
-    return(travel_time)   
+    return(travel_time) 
