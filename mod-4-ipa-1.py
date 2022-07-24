@@ -130,17 +130,17 @@ def eta(first_stop, second_stop, route_map):
     m = [z for y,z in k]
     recurring_mins = 0
     for o in l:
-        p = l.index(o)
+        t = l.index(o)
         if o == first_stop:
             while(True):
-                if m[p] != second_stop:
-                    stop_mins = int(route_map[l[p],m[p]]['travel_time_mins'])
+                if m[t] != second_stop:
+                    stop_mins = int(route_map[l[t],m[t]]['travel_time_mins'])
                     recurring_mins += stop_mins
-                    if p == len(l) - 1:
-                        p = 0
-                    elif p < len(l):
-                        p += 1
+                    if t == len(l) - 1:
+                        t = 0
+                    elif t < len(l):
+                        t += 1
                     continue
-                elif m[p] == second_stop:
-                    first_stop_mins = int(route_map[l[p],m[p]]['travel_time_mins'])
+                elif m[t] == second_stop:
+                    first_stop_mins = int(route_map[l[t],m[t]]['travel_time_mins'])
                     return recurring_mins + first_stop_mins
